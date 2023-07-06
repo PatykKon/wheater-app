@@ -6,3 +6,9 @@ Mockito,
 Spring Boot,
 Maven,
 Lombok
+
+to get the best city for surfing we have to: localhost:8080/getcity ,  requestBody:
+
+{
+    "startDay": "2023-07-10" 
+}
