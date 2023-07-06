@@ -1,4 +1,4 @@
-package com.wheaterapp.infrastructure.DTO;
+package com.wheaterapp.infrastructure.clientapi.dto;
 
 import java.util.List;
 

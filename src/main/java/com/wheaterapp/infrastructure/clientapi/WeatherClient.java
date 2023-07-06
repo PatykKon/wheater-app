@@ -1,7 +1,7 @@
-package com.wheaterapp.infrastructure;
+package com.wheaterapp.infrastructure.clientapi;
 
 import com.wheaterapp.domain.City;
-import com.wheaterapp.infrastructure.DTO.WeatherDataDto;
+import com.wheaterapp.infrastructure.clientapi.dto.WeatherDataDto;
 import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
