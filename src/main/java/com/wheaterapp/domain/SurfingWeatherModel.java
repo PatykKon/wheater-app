@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Setter(AccessLevel.PRIVATE)
 @Getter(AccessLevel.PACKAGE)
-public class SurfingWeatherModel implements WeatherSpecification{
+public class SurfingWeatherModel extends ConditionWeather implements WeatherSpecification{
 
     private final static double TEMP_RANGE_MIN = 5;
     private final static double TEMP_RANGE_MAX = 35;
