@@ -1,6 +1,5 @@
 package com.wheaterapp.configuration;
 
-import com.wheaterapp.domain.CityWeather;
 import com.wheaterapp.domain.ConditionWeather;
 import com.wheaterapp.domain.SurfingWeatherModel;
 import com.wheaterapp.infrastructure.mapper.WeatherMapper;
@@ -18,12 +17,6 @@ public class AppConfiguration {
     public ConditionWeather conditionWeather() {
         return new ConditionWeather();
     }
-
-    @Bean
-    public CityWeather cityWeatherModel(){
-        return new CityWeather();
-    }
-
     @Bean
     public WeatherMapper weatherMapper(){
         return new WeatherMapper();

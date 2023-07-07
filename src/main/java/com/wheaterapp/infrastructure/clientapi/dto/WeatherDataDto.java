@@ -1,9 +1,14 @@
 package com.wheaterapp.infrastructure.clientapi.dto;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 
+import java.util.List;
+@Builder
 public record WeatherDataDto(
         List<WeatherDto> data,
         String city_name
+
 ) {
+
 }
