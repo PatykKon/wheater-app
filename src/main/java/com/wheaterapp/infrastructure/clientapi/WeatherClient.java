@@ -14,7 +14,7 @@ import java.util.List;
 public class WeatherClient {
 
     private static final String WEATHER_URL = "https://api.weatherbit.io/v2.0/forecast/daily?";
-    private static final String API_KEY = "****";
+    private static final String API_KEY = "d794e4cc936445318c9a0d05aea01037";
     private static final Integer DAYS = 16;
     private RestTemplate restTemplate = new RestTemplate();
 

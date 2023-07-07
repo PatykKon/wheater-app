@@ -1,5 +1,6 @@
 package com.wheaterapp.infrastructure.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wheaterapp.aplication.WeatherService;
 import com.wheaterapp.infrastructure.dto.CityResponse;
 import com.wheaterapp.infrastructure.dto.RequestDateWeather;
@@ -17,7 +18,7 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping("/getcity")
-    public CityResponse getCity(@RequestBody RequestDateWeather requestDateWeather){
+    public CityResponse getCity(@RequestBody RequestDateWeather requestDateWeather) throws JsonProcessingException {
         return weatherService.getCityToSurfing(requestDateWeather);
     }
 }

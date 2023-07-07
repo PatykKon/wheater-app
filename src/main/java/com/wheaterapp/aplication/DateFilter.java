@@ -1,11 +1,11 @@
 package com.wheaterapp.aplication;
 
-import com.wheaterapp.domain.CityWeather;
 import com.wheaterapp.infrastructure.clientapi.dto.WeatherDataDto;
 import com.wheaterapp.infrastructure.clientapi.dto.WeatherDto;
+import com.wheaterapp.infrastructure.dto.CityWeatherDayDto;
+import com.wheaterapp.infrastructure.dto.CityWeatherDto;
 import com.wheaterapp.infrastructure.dto.RequestDateWeather;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,22 +22,26 @@ public class DateFilter {
         return !currentDate.isBefore(givenData);
     }
 
-    public List<CityWeather> filteringWeatherByRequestDate(WeatherDataDto weatherDataDto, RequestDateWeather requestDateWeather) {
 
-        List<CityWeather> weatherInRequestDate = new ArrayList<>();
+    public CityWeatherDto filteringWeatherByRequestDate(WeatherDataDto weatherDataDto, RequestDateWeather requestDateWeather) {
+
+        List<CityWeatherDayDto> allDayForCity = new ArrayList<>();
 
         for (WeatherDto weather : weatherDataDto.data()) {
             if (isWithinDateRange(requestDateWeather,weather.datetime())) {
-                CityWeather weatherData1 = CityWeather.builder()
-                        .city(weather.city())
-                        .temp(weather.temp())
+                CityWeatherDayDto cityWeatherDay = CityWeatherDayDto.builder()
                         .wind_spd(weather.wind_spd())
+                        .temp(weather.temp())
+                        .city(weatherDataDto.city_name())
                         .datetime(weather.datetime())
                         .build();
-
-                weatherInRequestDate.add(weatherData1);
+                allDayForCity.add(cityWeatherDay);
             }
         }
-        return weatherInRequestDate;
+        CityWeatherDto cityWeather = CityWeatherDto.builder()
+                .cityWeatherDay(allDayForCity)
+                .city(weatherDataDto.city_name())
+                .build();
+        return cityWeather;
     }
 }
